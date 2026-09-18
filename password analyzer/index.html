@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+            </div>
+            <h1>Password Analyzer</h1>
+            <p class="subtitle">Check the strength of your password instantly</p>
+        </header>
+
+        <main class="analyzer-card">
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input type="password" id="password-input" placeholder="Type a password..." autocomplete="off">
+                    <button type="button" id="toggle-visibility" class="icon-btn" aria-label="Toggle visibility">
+                        <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg class="icon-eye-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                        </svg>
+                    </button>
+                </div>
+                <button type="button" id="clear-btn" class="secondary-btn">Clear</button>
+            </div>
+
+            <div class="strength-section">
+                <div class="strength-header">
+                    <span>Strength:</span>
+                    <span id="strength-text" class="strength-label">None</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-label">Entropy</span>
+                    <span class="stat-value" id="stat-entropy">0 bits</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Crack Time</span>
+                    <span class="stat-value" id="stat-time">Instantly</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Combinations</span>
+                    <span class="stat-value" id="stat-combos">0</span>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h3>Requirements</h3>
+                <ul id="requirements-list">
+                    <li id="req-length"><span class="check-icon"></span> Minimum 8 characters</li>
+                    <li id="req-upper"><span class="check-icon"></span> Uppercase letter</li>
+                    <li id="req-lower"><span class="check-icon"></span> Lowercase letter</li>
+                    <li id="req-number"><span class="check-icon"></span> Number</li>
+                    <li id="req-special"><span class="check-icon"></span> Special character</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="security-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <p><strong>Privacy First:</strong> Your password is analyzed locally in your browser. It is never stored or transmitted over the internet.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
